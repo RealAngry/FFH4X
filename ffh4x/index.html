@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFH4X ARMY - Free Fire Guild</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+        }
+        .section {
+            padding: 2rem;
+            margin: 1rem auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 900px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.5rem;
+            color: #333;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    background-color: #003d7a;
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.1s, transform 0.1s, box-shadow 0.1s;
+}
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #222;
+            color: #fff;
+        }
+        .admin-login {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .admin-login input {
+            width: calc(100% - 22px);
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .admin-login button {
+            width: 100%;
+            padding: 0.5rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .admin-login button:hover {
+            background-color: #0056b3;
+        }
+        <link rel="stylesheet" href="main.css">
+    <div class="night"></div>
+    <div class="flowers">
+        <div class="flower flower--1">
+            <div class="flower__line">
+                <div class="flower__line__leaf flower__line__leaf--1"></div>
+                <div class="flower__line__leaf flower__line__leaf--2"></div>
+                <div class="flower__line__leaf flower__line__leaf--3"></div>
+                <div class="flower__line__leaf flower__line__leaf--4"></div>
+                <div class="flower__line__leaf flower__line__leaf--5"></div>
+                <div class="flower__line__leaf flower__line__leaf--6"></div>
+            </div>
+            <div class="flower__leafs flower__leafs--1">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+            </div>
+            <div class="flower__petals">
+                <div class="flower__petal flower__petal--1"></div>
+                <div class="flower__petal flower__petal--2"></div>
+                <div class="flower__petal flower__petal--3"></div>
+                <div class="flower__petal flower__petal--4"></div>
+                <div class="flower__petal flower__petal--5"></div>
+                <div class="flower__petal flower__petal--6"></div>
+            </div>
+            <div class="flower__center"></div>
+            <div class="flower__light flower__light--1"></div>
+            <div class="flower__light flower__light--2"></div>
+            <div class="flower__light flower__light--3"></div>
+            <div class="flower__light flower__light--4"></div>
+            <div class="flower__light flower__light--5"></div>
+            <div class="flower__light flower__light--6"></div>
+            <div class="flower__light flower__light--7"></div>
+            <div class="flower__light flower__light--8"></div>
+        </div>
+        <div class="flower flower--2">
+            <div class="flower__line">
+                <div class="flower__line__leaf flower__line__leaf--1"></div>
+                <div class="flower__line__leaf flower__line__leaf--2"></div>
+                <div class="flower__line__leaf flower__line__leaf--3"></div>
+                <div class="flower__line__leaf flower__line__leaf--4"></div>
+            </div>
+            <div class="flower__leafs flower__leafs--2">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+            </div>
+            <div class="flower__petals">
+                <div class="flower__petal flower__petal--1"></div>
+                <div class="flower__petal flower__petal--2"></div>
+                <div class="flower__petal flower__petal--3"></div>
+                <div class="flower__petal flower__petal--4"></div>
+                <div class="flower__petal flower__petal--5"></div>
+                <div class="flower__petal flower__petal--6"></div>
+            </div>
+            <div class="flower__center"></div>
+            <div class="flower__light flower__light--1"></div>
+            <div class="flower__light flower__light--2"></div>
+            <div class="flower__light flower__light--3"></div>
+            <div class="flower__light flower__light--4"></div>
+            <div class="flower__light flower__light--5"></div>
+            <div class="flower__light flower__light--6"></div>
+            <div class="flower__light flower__light--7"></div>
+            <div class="flower__light flower__light--8"></div>
+        </div>
+        <div class="flower flower--3">
+            <div class="flower__line">
+                <div class="flower__line__leaf flower__line__leaf--1"></div>
+                <div class="flower__line__leaf flower__line__leaf--2"></div>
+                <div class="flower__line__leaf flower__line__leaf--3"></div>
+                <div class="flower__line__leaf flower__line__leaf--4"></div>
+            </div>
+            <div class="flower__leafs flower__leafs--3">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+            </div>
+            <div class="flower__petals">
+                <div class="flower__petal flower__petal--1"></div>
+                <div class="flower__petal flower__petal--2"></div>
+                <div class="flower__petal flower__petal--3"></div>
+                <div class="flower__petal flower__petal--4"></div>
+                <div class="flower__petal flower__petal--5"></div>
+                <div class="flower__petal flower__petal--6"></div>
+            </div>
+            <div class="flower__center"></div>
+            <div class="flower__light flower__light--1"></div>
+            <div class="flower__light flower__light--2"></div>
+            <div class="flower__light flower__light--3"></div>
+            <div class="flower__light flower__light--4"></div>
+            <div class="flower__light flower__light--5"></div>
+            <div class="flower__light flower__light--6"></div>
+            <div class="flower__light flower__light--7"></div>
+            <div class="flower__light flower__light--8"></div>
+        </div>
+    </div>
+    <div class="flower__grass flower__grass--1">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+    </div>
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FFH4X ARMY</h1>
+        <nav>
+            <ul>
+                <li><a href="#about" class="btn">About</a></li>
+                <li><a href="#schedule" class="btn">Schedule</a></li>
+                <li><a href="#membership" class="btn">Membership</a></li>
+                <li><a href="#community" class="btn">Community</a></li>
+                <li><a href="#tips" class="btn">Tips</a></li>
+                <li><a href="#contact" class="btn">Contact</a></li>
+                <li><a href="#youtubers" class="btn">YouTubers</a></li>
+                <li><a href="#popular-guilds" class="btn">Popular Guilds</a></li>
+                <li><a href="admin-panel.html" class="btn">Admin Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>FFH4X ARMY is a Free Fire guild owned by Priyansh Gaming with about 5.2k subscribers on YouTube. Join our community of passionate gamers and improve your skills.</p>
+            </div>
+        </section>
+
+        <section id="schedule" class="section">
+            <div class="container">
+                <h2>Live Schedule</h2>
+                <p>Priyansh Gaming is live every day at 2:30 PM. Subscribe to our YouTube channel to get notified.</p>
+                <p>We play 4 v 4 matches with our subscribers' squad and also participate in guild wars. We compete in both national and international matches.</p>
+            </div>
+        </section>
+
+        <section id="membership" class="section">
+            <div class="container">
+                <h2>Join the Guild</h2>
+                <p>To join the FFH4X ARMY, you have to pass a test of 1 vs 3 against our guild players. Show your skills and become a part of our elite team.</p>
+                <p>Join our Discord to play 4 v 4 off stream and take the guild test off stream. Our Discord is managed by Angry and owned by Priyansh Gaming.</p>
+            </div>
+        </section>
+
+        <section id="community" class="section">
+            <div class="container">
+                <h2>Community & Tournaments</h2>
+                <p>We organize and participate in tournaments for 4 v 4 and 1 v 1 matches. Stay connected and join our community for regular updates. Being a member of our guild not only helps you improve your gameplay but also provides opportunities to make new friends, participate in exclusive events, and learn from experienced players.</p>
+            </div>
+        </section>
+
+        <section id="tips" class="section">
+            <div class="container">
+                <h2>Gameplay Tips</h2>
+                <ul>
+                    <li><strong>Practice Headshots:</strong> Regularly practice aiming for headshots to increase your kill rate.</li>
+                    <li><strong>Communication:</strong> Use voice chat effectively to communicate with your team during matches.</li>
+                    <li><strong>Map Knowledge:</strong> Learn the map layouts to better anticipate enemy movements and find advantageous positions.</li>
+                    <li><strong>Stay Updated:</strong> Keep up with game updates and changes to stay competitive.</li>
+                    <li><strong>Watch and Learn:</strong> Watch streams and videos of top players to understand their strategies and techniques.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="youtubers" class="section">
+            <div class="container">
+                <h2>Popular Free Fire YouTubers</h2>
+                <ul>
+                    <li><strong>Raistar:</strong> Known for his incredible skills and headshots. Follow him on YouTube to watch his gameplay and learn his techniques.</li>
+                    <li><strong>SK Sabir Boss:</strong> Another top player who shares tips and strategies for Free Fire.</li>
+                    <li><strong>Total Gaming:</strong> One of the most popular Free Fire content creators with millions of subscribers. His channel includes gameplay, tips, and entertaining content.</li>
+                </ul>
+                <h2>How to Become a Successful Free Fire YouTuber</h2>
+                <ul>
+                    <li><strong>Consistency:</strong> Upload videos regularly to keep your audience engaged.</li>
+                    <li><strong>Quality Content:</strong> Focus on creating high-quality videos with good editing, clear audio, and engaging commentary.</li>
+                    <li><strong>Unique Style:</strong> Develop your unique style or niche, whether it's gameplay, tutorials, or funny moments.</li>
+                    <li><strong>Engage with Your Audience:</strong> Respond to comments, interact with your viewers on social media, and build a community around your channel.</li>
+                    <li><strong>Learn from Others:</strong> Watch other successful YouTubers to understand what works and adapt those strategies to your content.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="popular-guilds" class="section">
+            <div class="container">
+                <h2>Popular Free Fire Guilds</h2>
+                <ul>
+                    <li><strong>Elite Squad:</strong> Known for their strategic gameplay and frequent tournament victories.</li>
+                    <<li><strong>Alpha Warriors:</strong> A competitive guild with skilled players who excel in both offense and defense strategies.</li>
+                    <li><strong>Pro Legends:</strong> Renowned for their participation in major tournaments and impressive performances.</li>
+                    <li><strong>Dark Knights:</strong> A guild that focuses on both competitive and casual gameplay, with a strong community spirit.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or would like to get in touch with us, please feel free to reach out via our social media channels or email us at <a href="mailto: itzaengry@gmail.com" class="btn">itzaengry@gmail.com</a>.</p>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FFH4X ARMY. All rights reserved.</p>
+    </footer>
+</body>
+</html>

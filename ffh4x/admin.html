@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - FFH4X ARMY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .form-container {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+            overflow: hidden;
+        }
+
+        .sign-up {
+            transform: translateX(100%);
+        }
+
+        .sign-in {
+            transform: translateX(-100%);
+        }
+
+        .toggle-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toggle {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .toggle-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .toggle-left {
+            background: #4e54c8;
+            color: #fff;
+        }
+
+        .toggle-right {
+            background: #8f94fb;
+            color: #fff;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4e54c8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #3c3f6c;
+            transform: scale(1.05);
+        }
+
+        #errorMessage {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 10px;
+            visibility: hidden;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+            75% {
+                transform: translateX(-10px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form id="signupForm">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icons"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-linkedin'></i></a>
+                </div>
+                <span>Register with E-mail</span>
+                <input type="text" id="signupName" placeholder="Name" required>
+                <input type="email" id="signupEmail" placeholder="Enter E-mail" required>
+                <input type="password" id="signupPassword" placeholder="Enter Password" required>
+                <button type="submit">Sign Up</button>
+                <div id="signupErrorMessage" class="error-message"></div>
+            </form>
+        </div>
+
+        <div class="form-container sign-in">
+            <form id="loginForm">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icons"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-linkedin'></i></a>
+                </div>
+                <span>Login With Email & Password</span>
+                <input type="email" id="loginEmail" placeholder="Enter E-mail" required>
+                <input type="password" id="loginPassword" placeholder="Enter Password" required>
+                <a href="#">Forget Password?</a>
+                <button type="submit">Sign In</button>
+                <div id="loginErrorMessage" class="error-message"></div>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle" id="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome To <br> FFH4X ARMY</h1>
+                    <p>Sign in with your credentials</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Join Us</h1>
+                    <p>Become a part of FFH4X ARMY to improve your Gaming skills</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login').addEventListener('click', function () {
+            document.querySelector('.container').style.transform = 'translateX(-50%)';
+        });
+
+        document.getElementById('register').addEventListener('click', function () {
+            document.querySelector('.container').style.transform = 'translateX(0)';
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            if (!email || !password) {
+                document.querySelector('#loginErrorMessage').innerText = 'Please fill in all fields.';
+                document.querySelector('#loginErrorMessage').style.visibility = 'visible';
+                document.querySelector('#loginForm button').classList.add('shake');
+                setTimeout(() => {
+                    document.querySelector('#loginForm button').classList.remove('shake');
+                }, 500);
+            } else {
+                document.querySelector('#loginErrorMessage').style.visibility = 'hidden';
+                // Handle login logic here
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            if (!name || !email || !password) {
+                document.querySelector('#signupErrorMessage').innerText = 'Please fill in all fields.';
+                document.querySelector('#signupErrorMessage').style.visibility = 'visible';
+            } else {
+                document.querySelector('#signupErrorMessage').style.visibility = 'hidden';
+                // Handle signup logic here
+            }
+        });
+    </script>
+</body>
+
+</html>

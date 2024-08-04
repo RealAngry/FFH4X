@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin-dashboard.css">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <button id="logout">Logout</button>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" id="manageUsers">Manage Users</a></li>
+                <li><a href="#" id="manageAdmins">Manage Admins</a></li>
+                <li><a href="#" id="settings">Settings</a></li>
+            </ul>
+        </nav>
+
+        <main id="mainContent">
+            <!-- Manage Users Section -->
+            <div id="manageUsersSection">
+                <h2>Manage Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userList">
+                        <!-- User list will be populated here -->
+                    </tbody>
+                </table>
+                <button id="addUserBtn">Add User</button>
+            </div>
+
+            <!-- Manage Admins Section -->
+            <div id="manageAdminsSection" style="display: none;">
+                <h2>Manage Admins</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Admin Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminList">
+                        <!-- Admin list will be populated here -->
+                    </tbody>
+                </table>
+                <button id="addAdminBtn">Add Admin</button>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settingsSection" style="display: none;">
+                <h2>Settings</h2>
+                <!-- Settings options can be added here -->
+                <p>Settings functionality will be implemented here.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="userModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="userModalTitle">Add User</h2>
+            <form id="userForm">
+                <label for="userName">Name:</label>
+                <input type="text" id="userName" required>
+                <label for="userEmail">Email:</label>
+                <input type="email" id="userEmail" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="adminModalTitle">Add Admin</h2>
+            <form id="adminForm">
+                <label for="adminName">Name:</label>
+                <input type="text" id="adminName" required>
+                <label for="adminEmail">Email:</label>
+                <input type="email" id="adminEmail" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dummy data for users and admins
+        const users = [
+            { username: 'john_doe', email: 'john@example.com' },
+            { username: 'jane_smith', email: 'jane@example.com' }
+        ];
+
+        const admins = [
+            { name: 'admin_one', email: 'admin1@example.com' },
+            { name: 'admin_two', email: 'admin2@example.com' }
+        ];
+
+        // Function to render users
+        function renderUsers() {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = '';
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                    <td><button onclick="banUser('${user.email}')">Ban</button></td>
+                `;
+                userList.appendChild(row);
+            });
+        }
+
+        // Function to render admins
+        function renderAdmins() {
+            const adminList = document.getElementById('adminList');
+            adminList.innerHTML = '';
+            admins.forEach(admin => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${admin.name}</td>
+                    <td>${admin.email}</td>
+                    <td><button onclick="removeAdmin('${admin.email}')">Remove</button></td>
+                `;
+                adminList.appendChild(row);
+            });
+        }
+
+        // Function to ban a user
+        function banUser(email) {
+            alert(`User with email ${email} has been banned.`);
+            // Implement actual banning logic here
+        }
+
+        // Function to remove an admin
+        function removeAdmin(email) {
+            alert(`Admin with email ${email} has been removed.`);
+            // Implement actual removal logic here
+        }
+
+        // Handle navigation
+        document.getElementById('manageUsers').addEventListener('click', () => {
+            document.getElementById('manageUsersSection').style.display = 'block';
+            document.getElementById('manageAdminsSection').style.display = 'none';
+            document.getElementById('settingsSection').style.display = 'none';
+            renderUsers();
+        });
+
+        document.getElementById('manageAdmins').addEventListener('click', () => {
+            document.getElementById('manageUsersSection').style.display = 'none';
+            document.getElementById('manageAdminsSection').style.display = 'block';
+            document.getElementById('settingsSection').style.display = 'none';
+            renderAdmins();
+        });
+
+        document.getElementById('settings').addEventListener('click', () => {
+            document.getElementById('manageUsersSection').style.display = 'none';
+            document.getElementById('manageAdminsSection').style.display = 'none';
+            document.getElementById('settingsSection').style.display = 'block';
+        });
+
+        document.getElementById('logout').addEventListener('click', () => {
+            window.location.href = 'admin-panel.html'; // Redirect to login page
+        });
+
+        // Handle add user button click
+        document.getElementById('addUserBtn').addEventListener('click', () => {
+            showModal('userModal', 'Add User');
+        });
+
+        // Handle add admin button click
+        document.getElementById('addAdminBtn').addEventListener('click', () => {
+            showModal('adminModal', 'Add Admin');
+        });
+
+        // Handle modal form submission
+        document.getElementById('userForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            users.push({ username: name, email: email });
+            renderUsers();
+            closeModal('userModal');
+        });
+
+        document.getElementById('adminForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('adminName').value;
+            const email = document.getElementById('adminEmail').value;
+            admins.push({ name, email });
+            renderAdmins();
+            closeModal('adminModal');
+        });
+
+        // Show modal
+        function showModal(modalId, title) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.getElementById(`${modalId}Title`).textContent = title;
+        }
+
+        // Close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Close modal when clicking the close button
+        document.querySelectorAll('.close').forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                closeModal(event.target.closest('.modal').id);
+            });
+        });
+
+        // Initial render
+        renderUsers();
+        renderAdmins();
+    </script>
+</body>
+
+</html>
